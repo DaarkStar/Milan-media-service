@@ -1340,9 +1340,58 @@
       .port-item.p5,
       .port-item.p6 { grid-column: span 1; grid-row: span 1; }
       .about-grid { gap: 40px; }
-      .svc-row { grid-template-columns: 50px 1fr auto; gap: 16px; padding: 24px 0; }
-      .svc-row .svc-desc { display: none; }
+      .svc-row {
+        grid-template-columns: 36px minmax(0, 1fr) 52px;
+        gap: 16px;
+        padding: 24px 0;
+        align-items: flex-start;
+      }
+      .svc-row .svc-num {
+        grid-column: 1;
+        grid-row: 1;
+        padding-top: 10px;
+      }
+      .svc-row .svc-name {
+        grid-column: 2;
+        grid-row: 1;
+      }
+      .svc-row .svc-arrow {
+        grid-column: 3;
+        grid-row: 1;
+        justify-self: end;
+        align-self: start;
+        width: 40px;
+        height: 40px;
+        margin-top: 2px;
+      }
+      .svc-row .svc-desc {
+        display: block;
+        grid-column: 2 / 4;
+        grid-row: 2;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        margin-top: -4px;
+        padding-right: 4px;
+        transition: max-height 0.35s var(--ease-out),
+                    opacity 0.25s ease,
+                    margin-top 0.35s var(--ease-out);
+      }
+      .svc-row.is-open .svc-desc {
+        max-height: 140px;
+        opacity: 1;
+        margin-top: 2px;
+      }
       .svc-row:hover { padding: 24px 0; }
+      .svc-row:hover .svc-name { color: var(--cream); transform: none; }
+      .svc-row.is-open::before { opacity: 1; }
+      .svc-row.is-open .svc-name { color: var(--tan-2); }
+      .svc-row.is-open .svc-arrow {
+        background: var(--tan);
+        color: var(--ink);
+        border-color: var(--tan);
+        transform: rotate(-45deg);
+      }
       .why-item { grid-template-columns: 48px 1fr; }
       .why-item .why-num { display: none; }
       .form-row { grid-template-columns: 1fr; }
@@ -2115,6 +2164,46 @@
         preview.classList.add('active');
       });
       row.addEventListener('mouseleave', () => preview.classList.remove('active'));
+    });
+    const mobileServices = window.matchMedia('(max-width: 760px)');
+    const serviceRows = Array.from(document.querySelectorAll('.svc-row'));
+    serviceRows.forEach((row, index) => {
+      row.setAttribute('role', 'button');
+      row.setAttribute('tabindex', '0');
+      row.setAttribute('aria-expanded', 'false');
+
+      const toggleRow = () => {
+        if (!mobileServices.matches) return;
+        const shouldOpen = !row.classList.contains('is-open');
+        serviceRows.forEach(item => {
+          item.classList.remove('is-open');
+          item.setAttribute('aria-expanded', 'false');
+        });
+        if (shouldOpen) {
+          row.classList.add('is-open');
+          row.setAttribute('aria-expanded', 'true');
+        }
+      };
+
+      row.addEventListener('click', toggleRow);
+      row.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleRow();
+        }
+      });
+
+      if (index === 0 && mobileServices.matches) {
+        row.classList.add('is-open');
+        row.setAttribute('aria-expanded', 'true');
+      }
+    });
+    mobileServices.addEventListener('change', e => {
+      serviceRows.forEach((row, index) => {
+        const shouldOpen = e.matches && index === 0;
+        row.classList.toggle('is-open', shouldOpen);
+        row.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+      });
     });
     document.querySelector('.services').addEventListener('mousemove', e => {
       tx = e.clientX; ty = e.clientY;
