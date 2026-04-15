@@ -844,7 +844,7 @@
        ============================================================ */
     .why {
       padding: 140px 0;
-      background: var(--blue);
+      background: var(--ink-2);
       color: var(--cream);
       position: relative;
       overflow: hidden;
@@ -1954,6 +1954,10 @@
     const curtain = document.querySelector('.preloader-curtain');
     lenis.stop();
 
+    // Pre-hide hero intro elements so they do not flash before the loader exits.
+    gsap.set('.nav-inner > *', { y: -30, opacity: 0 });
+    gsap.set('[data-fade]', { y: 20, opacity: 0 });
+
     window.addEventListener('load', () => {
       gsap.to(preLogo, { opacity: 1, duration: 0.5, ease: 'power2.out' });
       const tl = gsap.timeline({
@@ -1978,8 +1982,8 @@
     /* ========== HERO ANIMATION ========== */
     function playHero() {
       const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
-      tl.from('.nav-inner > *', { y: -30, opacity: 0, duration: 0.6, stagger: 0.1 })
-        .from('[data-fade]', { y: 20, opacity: 0, duration: 0.6 }, '-=0.3')
+      tl.to('.nav-inner > *', { y: 0, opacity: 1, duration: 0.6, stagger: 0.1 })
+        .to('[data-fade]', { y: 0, opacity: 1, duration: 0.6 }, '-=0.3')
         .to('.reveal-line > span', { y: 0, duration: 1.1, stagger: 0.1, ease: 'expo.out' }, '-=0.2')
         .to('.hero-sub', { y: 0, opacity: 1, duration: 0.8 }, '-=0.8')
         .to('.hero-actions', { y: 0, opacity: 1, duration: 0.8 }, '-=0.6')
@@ -2030,6 +2034,12 @@
       el.addEventListener('click', e => {
         e.preventDefault();
         const target = document.querySelector(el.dataset.scroll);
+        const isMobileMenuLink = mPanel.classList.contains('open') && el.closest('.mobile-panel');
+        if (isMobileMenuLink) {
+          closeMenu();
+          if (target) requestAnimationFrame(() => lenis.scrollTo(target, { offset: -40, duration: 1.4 }));
+          return;
+        }
         if (target) lenis.scrollTo(target, { offset: -40, duration: 1.4 });
         closeMenu();
       });
@@ -2065,12 +2075,27 @@
       start: 'top 88%'
     });
 
-    /* ========== ABOUT GALLERY PARALLAX ========== */
-    gsap.utils.toArray('.gal-item img').forEach(img => {
-      gsap.fromTo(img, { yPercent: -8 }, {
-        yPercent: 8, ease: 'none',
-        scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true }
+    /* ========== IMAGE PARALLAX ========== */
+    const mm = gsap.matchMedia();
+    mm.add('(hover: hover) and (pointer: fine) and (min-width: 901px)', () => {
+      gsap.utils.toArray('.gal-item img').forEach(img => {
+        gsap.fromTo(img, { yPercent: -8 }, {
+          yPercent: 8,
+          ease: 'none',
+          scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true }
+        });
       });
+
+      gsap.utils.toArray('.port-item img').forEach(img => {
+        gsap.fromTo(img, { yPercent: -5 }, {
+          yPercent: 5,
+          ease: 'none',
+          scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true }
+        });
+      });
+    });
+    mm.add('(max-width: 900px), (hover: none), (pointer: coarse)', () => {
+      gsap.set('.gal-item img, .port-item img', { yPercent: 0 });
     });
 
     /* ========== SERVICES STAGGER ========== */
@@ -2115,13 +2140,6 @@
       trigger: '.port-grid', start: 'top 85%', once: true,
       onEnter: () => gsap.to('.port-item', { opacity: 1, y: 0, scale: 1, duration: 0.9, stagger: 0.08, ease: 'power3.out', overwrite: true })
     });
-    gsap.utils.toArray('.port-item img').forEach(img => {
-      gsap.fromTo(img, { yPercent: -5 }, {
-        yPercent: 5, ease: 'none',
-        scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true }
-      });
-    });
-
     /* ========== WHY ITEMS ========== */
     gsap.set('.why-item', { opacity: 0, y: 30 });
     ScrollTrigger.create({
