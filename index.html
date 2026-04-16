@@ -2565,7 +2565,7 @@
     <!-- ================================================== WHY ================================================== -->
     <section class="why" id="why">
       <div class="wrap why-inner">
-        <div class="why-head">
+        <div class="why-head" data-reveal>
           <span class="eyebrow light">05 · The Milan advantage</span>
           <h2 class="display">Why Odisha keeps <em>coming back</em>.</h2>
           <p>
@@ -3032,6 +3032,24 @@
       });
 
       /* ========== SMOOTH ANCHOR ========== */
+      function syncScrollAnimations() {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            ScrollTrigger.refresh();
+            ScrollTrigger.update();
+          });
+        });
+      }
+
+      function scrollToSection(target) {
+        if (!target) return;
+        lenis.scrollTo(target, {
+          offset: -40,
+          duration: 1.4,
+          onComplete: syncScrollAnimations,
+        });
+      }
+
       document.querySelectorAll("[data-scroll]").forEach((el) => {
         el.addEventListener("click", (e) => {
           e.preventDefault();
@@ -3040,13 +3058,10 @@
             mPanel.classList.contains("open") && el.closest(".mobile-panel");
           if (isMobileMenuLink) {
             closeMenu();
-            if (target)
-              requestAnimationFrame(() =>
-                lenis.scrollTo(target, { offset: -40, duration: 1.4 }),
-              );
+            if (target) requestAnimationFrame(() => scrollToSection(target));
             return;
           }
-          if (target) lenis.scrollTo(target, { offset: -40, duration: 1.4 });
+          scrollToSection(target);
           closeMenu();
         });
       });
@@ -3088,19 +3103,6 @@
               overwrite: true,
             }),
         });
-      });
-
-      /* split-text style line reveals inside sections with headings */
-      ScrollTrigger.batch(".display", {
-        onEnter: (batch) =>
-          gsap.from(batch, {
-            y: 30,
-            opacity: 0,
-            duration: 1.1,
-            ease: "expo.out",
-            stagger: 0.08,
-          }),
-        start: "top 88%",
       });
 
       /* ========== IMAGE PARALLAX ========== */
