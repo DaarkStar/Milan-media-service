@@ -12,7 +12,7 @@
     />
     <meta
       name="keywords"
-      content="printing solutions in Odisha, printing services in Bhubaneswar, offset printing in Odisha, bulk printing in Odisha, brochure printing Bhubaneswar, business card printing Odisha, exam paper printing Odisha, hospital stationery printing Odisha, banner printing Bhubaneswar, flex printing Odisha, packaging label printing Odisha, Milan Media Service"
+      content="printing solutions in Odisha, printing services in Bhubaneswar, offset printing in Odisha, bulk printing in Odisha, brochure printing Bhubaneswar, business card printing Odisha, exam paper printing Odisha, hospital stationery printing Odisha, banner printing Bhubaneswar, flex printing Odisha, packaging label printing Odisha, government printing contractor Odisha, industrial printing Odisha, institutional printing Odisha, printing company in Bhubaneswar, Cuttack printing services, Puri printing services, Khordha printing services, Berhampur printing services, Sambalpur printing services, Rourkela printing services, Balasore printing services, Milan Media Service"
     />
     <meta name="author" content="Milan Media Service" />
     <meta name="theme-color" content="#0D1B2A" />
@@ -30,7 +30,10 @@
     />
     <meta name="application-name" content="Milan Media Service" />
     <meta name="apple-mobile-web-app-title" content="Milan Media Service" />
-    <meta name="format-detection" content="telephone=yes, email=yes, address=yes" />
+    <meta
+      name="format-detection"
+      content="telephone=yes, email=yes, address=yes"
+    />
     <meta name="geo.region" content="IN-OD" />
     <meta name="geo.placename" content="Bhubaneswar, Odisha" />
     <link rel="canonical" href="https://milanmedia.netlify.app/" />
@@ -111,6 +114,22 @@
             "email": "info@milanmediaservice.com",
             "foundingDate": "2000",
             "description": "Milan Media Service is a Bhubaneswar-based printing company offering offset printing, brochure printing, business cards, flex banners, exam paper printing, hospital stationery, packaging labels, and bulk print solutions across Odisha.",
+            "knowsAbout": [
+              "printing solutions in Odisha",
+              "printing services in Bhubaneswar",
+              "offset printing",
+              "bulk printing",
+              "brochure printing",
+              "business card printing",
+              "banner printing",
+              "flex printing",
+              "exam paper printing",
+              "hospital stationery printing",
+              "industrial printing",
+              "packaging label printing",
+              "government printing",
+              "institutional printing"
+            ],
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Bhubaneswar",
@@ -125,6 +144,34 @@
               {
                 "@type": "City",
                 "name": "Bhubaneswar"
+              },
+              {
+                "@type": "City",
+                "name": "Cuttack"
+              },
+              {
+                "@type": "City",
+                "name": "Puri"
+              },
+              {
+                "@type": "City",
+                "name": "Khordha"
+              },
+              {
+                "@type": "City",
+                "name": "Berhampur"
+              },
+              {
+                "@type": "City",
+                "name": "Sambalpur"
+              },
+              {
+                "@type": "City",
+                "name": "Rourkela"
+              },
+              {
+                "@type": "City",
+                "name": "Balasore"
               }
             ],
             "hasMap": "https://maps.app.goo.gl/dBgbmvjGQbTkwco27",
@@ -1669,32 +1716,77 @@
       .coverage-grid {
         margin-top: 52px;
         display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: 1fr;
         gap: 18px;
+        max-width: 1080px;
       }
       .coverage-card {
-        background: var(--cream-2);
-        border: 1px solid var(--line);
-        border-radius: var(--radius-lg);
-        padding: 34px 32px;
+        background: linear-gradient(
+          135deg,
+          rgba(13, 27, 42, 0.98),
+          rgba(21, 43, 69, 0.94) 52%,
+          rgba(34, 41, 49, 0.94)
+        );
+        border: 1px solid rgba(196, 148, 86, 0.16);
+        border-radius: calc(var(--radius-lg) + 2px);
+        padding: 36px;
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 36px;
+        align-items: start;
+        box-shadow: 0 24px 60px rgba(13, 27, 42, 0.14);
+      }
+      .coverage-card {
+        position: relative;
+        overflow: hidden;
+      }
+      .coverage-kicker {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(224, 181, 131, 0.82);
+        margin-bottom: 18px;
       }
       .coverage-card h3 {
         font-family: "Fraunces", serif;
-        font-size: 30px;
+        font-size: clamp(30px, 4vw, 48px);
         font-weight: 500;
-        color: var(--ink);
-        margin-bottom: 18px;
+        color: var(--cream);
+        margin-bottom: 0;
+        line-height: 1.02;
+        letter-spacing: -0.03em;
       }
       .coverage-card p {
         font-size: 15px;
         line-height: 1.75;
-        color: var(--mute);
+        color: rgba(245, 239, 230, 0.74);
       }
       .coverage-card p + p {
         margin-top: 16px;
       }
       .coverage-card strong {
-        color: var(--ink);
+        color: var(--paper);
+      }
+      .coverage-copy {
+        padding-top: 8px;
+      }
+      .coverage-stats {
+        margin-top: 22px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .coverage-stats span {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: var(--cream);
+        font-size: 12px;
+        font-weight: 500;
       }
       .coverage-tags {
         display: flex;
@@ -2375,11 +2467,18 @@
         .faq-item {
           padding: 24px 22px;
         }
+        .coverage-card {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .coverage-kicker {
+          margin-bottom: 12px;
+        }
         .coverage-cities {
           grid-template-columns: 1fr;
         }
         .coverage-card h3 {
-          font-size: 24px;
+          font-size: 26px;
         }
         .faq-item summary {
           font-size: 22px;
@@ -2767,14 +2866,28 @@
           </p>
         </div>
 
-        <div class="svc-list">
+        <div
+          class="svc-list"
+          itemscope
+          itemtype="https://schema.org/OfferCatalog"
+          aria-label="Printing services in Bhubaneswar and Odisha"
+        >
+          <meta
+            itemprop="name"
+            content="Milan Media Service Printing Services"
+          />
           <div
             class="svc-row"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/Service"
+            title="Offset printing services in Bhubaneswar, Odisha"
+            aria-label="Offset printing services in Bhubaneswar, Odisha"
             data-preview="https://thumbs.dreamstime.com/b/stacks-fresh-newspapers-printing-press-production-line-stacks-newly-printed-newspapers-await-distribution-production-423916720.jpg?w=992"
           >
             <div class="svc-num">01 /</div>
-            <h3 class="svc-name">Offset Printing</h3>
-            <div class="svc-desc">
+            <h3 class="svc-name" itemprop="name">Offset Printing</h3>
+            <div class="svc-desc" itemprop="description">
               High-volume bulk production with consistent color accuracy for
               books, catalogues, and government forms.
             </div>
@@ -2782,11 +2895,16 @@
           </div>
           <div
             class="svc-row"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/Service"
+            title="Brochure and catalogue printing in Bhubaneswar, Odisha"
+            aria-label="Brochure and catalogue printing in Bhubaneswar, Odisha"
             data-preview="https://printingo.in/wp-content/uploads/2021/01/A4-Catalogue_6.jpg"
           >
             <div class="svc-num">02 /</div>
-            <h3 class="svc-name">Brochures & Catalogs</h3>
-            <div class="svc-desc">
+            <h3 class="svc-name" itemprop="name">Brochures & Catalogs</h3>
+            <div class="svc-desc" itemprop="description">
               Multi-page brochures and product catalogues with premium finishes
               and stitching options.
             </div>
@@ -2794,11 +2912,18 @@
           </div>
           <div
             class="svc-row"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/Service"
+            title="Business card and stationery printing in Bhubaneswar, Odisha"
+            aria-label="Business card and stationery printing in Bhubaneswar, Odisha"
             data-preview="https://www.perprint.in/wp-content/uploads/2024/04/Perprint-Velvet-Lamination-in-Gurgaon.jpg"
           >
             <div class="svc-num">03 /</div>
-            <h3 class="svc-name">Business Cards & Stationery</h3>
-            <div class="svc-desc">
+            <h3 class="svc-name" itemprop="name">
+              Business Cards & Stationery
+            </h3>
+            <div class="svc-desc" itemprop="description">
               Premium business cards, letterheads, envelopes, and complete
               corporate stationery packages.
             </div>
@@ -2806,11 +2931,16 @@
           </div>
           <div
             class="svc-row"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/Service"
+            title="Banner and flex printing in Bhubaneswar, Odisha"
+            aria-label="Banner and flex printing in Bhubaneswar, Odisha"
             data-preview="https://s3-us-west-2.amazonaws.com/issuewireassets/primg/43223/signage-outdoor-banners-advertising2012395704.jpg"
           >
             <div class="svc-num">04 /</div>
-            <h3 class="svc-name">Banners & Flex Printing</h3>
-            <div class="svc-desc">
+            <h3 class="svc-name" itemprop="name">Banners & Flex Printing</h3>
+            <div class="svc-desc" itemprop="description">
               Large-format banners and flex prints for events, exhibitions, and
               outdoor promotions.
             </div>
@@ -2818,11 +2948,18 @@
           </div>
           <div
             class="svc-row"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/Service"
+            title="Exam paper and school stationery printing in Odisha"
+            aria-label="Exam paper and school stationery printing in Odisha"
             data-preview="https://www.a1securityprint.com/wp-content/uploads/2024/06/Exam-Printing.png"
           >
             <div class="svc-num">05 /</div>
-            <h3 class="svc-name">School & Examination Papers</h3>
-            <div class="svc-desc">
+            <h3 class="svc-name" itemprop="name">
+              School & Examination Papers
+            </h3>
+            <div class="svc-desc" itemprop="description">
               Secure, confidential bulk printing of examination papers, answer
               booklets, and academic stationery.
             </div>
@@ -2830,11 +2967,16 @@
           </div>
           <div
             class="svc-row"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/Service"
+            title="Hospital stationery and industrial printing in Odisha"
+            aria-label="Hospital stationery and industrial printing in Odisha"
             data-preview="https://images.pexels.com/photos/261763/pexels-photo-261763.jpeg?auto=compress&cs=tinysrgb&w=600"
           >
             <div class="svc-num">06 /</div>
-            <h3 class="svc-name">Hospital & Industrial</h3>
-            <div class="svc-desc">
+            <h3 class="svc-name" itemprop="name">Hospital & Industrial</h3>
+            <div class="svc-desc" itemprop="description">
               Specialized forms, prescription pads, reports, labels, and
               industrial documentation.
             </div>
@@ -2842,11 +2984,16 @@
           </div>
           <div
             class="svc-row"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/Service"
+            title="Packaging and label printing in Odisha"
+            aria-label="Packaging and label printing in Odisha"
             data-preview="https://img.avery.com/f_auto,q_auto,c_scale,w_600/web/weprint/labels/weprint-tiles-sheet-candles"
           >
             <div class="svc-num">07 /</div>
-            <h3 class="svc-name">Packaging & Labels</h3>
-            <div class="svc-desc">
+            <h3 class="svc-name" itemprop="name">Packaging & Labels</h3>
+            <div class="svc-desc" itemprop="description">
               Custom packaging, product labels, and stickers with vibrant colors
               and durable finishes.
             </div>
@@ -3118,8 +3265,10 @@
     <section class="coverage" id="odisha-printing">
       <div class="wrap">
         <div class="coverage-head" data-reveal>
-          <span class="eyebrow">07 · Printing Solutions in Odisha</span>
-          <h2 class="display">Built for Bhubaneswar. <em>Trusted across Odisha.</em></h2>
+          <span class="eyebrow">07 · made in Odisha</span>
+          <h2 class="display">
+            Built for Bhubaneswar. <em>Trusted across Odisha.</em>
+          </h2>
           <p>
             If someone is searching for printing solutions in Odisha, offset
             printing in Bhubaneswar, bulk printing for institutions, exam paper
@@ -3131,63 +3280,25 @@
 
         <div class="coverage-grid">
           <div class="coverage-card" data-reveal>
-            <h3>What Milan Media Service is known for</h3>
-            <p>
-              <strong>Milan Media Service</strong> is a Bhubaneswar printing
-              company focused on institutional and commercial print production:
-              offset printing, brochure printing, business cards, stationery,
-              exam papers, hospital forms, industrial documentation, packaging,
-              labels, banners, and flex printing.
-            </p>
-            <p>
-              We work with schools, colleges, hospitals, industries, and
-              government departments that need quality control, dependable
-              turnaround, and consistency over large print volumes.
-            </p>
-          </div>
-
-          <div class="coverage-card" data-reveal>
-            <h3>Popular searches we match</h3>
-            <div class="coverage-tags">
-              <span>Offset printing in Odisha</span>
-              <span>Printing services in Bhubaneswar</span>
-              <span>Bulk printing in Odisha</span>
-              <span>Brochure printing Bhubaneswar</span>
-              <span>Business card printing Odisha</span>
-              <span>Exam paper printing Odisha</span>
-              <span>Hospital stationery printing</span>
-              <span>Banner and flex printing Bhubaneswar</span>
-              <span>Packaging label printing Odisha</span>
-              <span>Government printing contractor Odisha</span>
+            <div>
+              <div class="coverage-kicker">
+                Bhubaneswar Based · Odisha Focused
+              </div>
+              <h3>Institutional printing, without the guesswork.</h3>
             </div>
-          </div>
-
-          <div class="coverage-card" data-reveal>
-            <h3>Service areas</h3>
-            <p>
-              Based in Bhubaneswar, we support clients across Odisha for print
-              jobs where quality, accuracy, and timelines matter.
-            </p>
-            <ul class="coverage-cities">
-              <li>Bhubaneswar</li>
-              <li>Cuttack</li>
-              <li>Puri</li>
-              <li>Khordha</li>
-              <li>Berhampur</li>
-              <li>Sambalpur</li>
-              <li>Rourkela</li>
-              <li>Balasore</li>
-            </ul>
-          </div>
-
-          <div class="coverage-card" data-reveal>
-            <h3>Best fit projects</h3>
-            <p>
-              We are strongest when the job involves recurring supply, large
-              runs, institutional workflows, confidential print handling,
-              branded stationery systems, or production schedules tied to public
-              service, education, healthcare, or industrial operations.
-            </p>
+            <div class="coverage-copy">
+              <p>
+                <strong>Milan Media Service</strong> supports schools,
+                hospitals, industries, and government departments with bulk
+                offset production, tighter quality control, and dependable
+                turnaround across Odisha.
+              </p>
+              <div class="coverage-stats">
+                <span>25+ years</span>
+                <span>7 core services</span>
+                <span>Bulk print specialist</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3198,7 +3309,9 @@
       <div class="wrap">
         <div class="faq-head" data-reveal>
           <span class="eyebrow">08 · FAQs</span>
-          <h2 class="display">Questions people ask before they <em>print</em>.</h2>
+          <h2 class="display">
+            Questions people ask before they <em>print</em>.
+          </h2>
           <p>
             These answers help both visitors and search engines understand what
             Milan Media Service does, where we operate, and which print jobs we
@@ -3215,7 +3328,9 @@
             </p>
           </details>
           <details class="faq-item" data-reveal>
-            <summary>What printing services does Milan Media Service offer?</summary>
+            <summary>
+              What printing services does Milan Media Service offer?
+            </summary>
             <p>
               We provide offset printing, brochures and catalogues, business
               cards and stationery, banners and flex printing, school and exam
@@ -3224,14 +3339,19 @@
             </p>
           </details>
           <details class="faq-item" data-reveal>
-            <summary>Do you handle bulk printing for government departments and institutions?</summary>
+            <summary>
+              Do you handle bulk printing for government departments and
+              institutions?
+            </summary>
             <p>
-              Yes. Bulk printing for government departments, schools,
-              hospitals, and institutional clients is one of our core strengths.
+              Yes. Bulk printing for government departments, schools, hospitals,
+              and institutional clients is one of our core strengths.
             </p>
           </details>
           <details class="faq-item" data-reveal>
-            <summary>Can I order exam paper printing and school stationery in Odisha?</summary>
+            <summary>
+              Can I order exam paper printing and school stationery in Odisha?
+            </summary>
             <p>
               Yes. We handle examination papers, answer booklets, school
               stationery, and academic print materials that require reliable
@@ -3239,7 +3359,10 @@
             </p>
           </details>
           <details class="faq-item" data-reveal>
-            <summary>Do you print hospital forms, prescription pads, and industrial labels?</summary>
+            <summary>
+              Do you print hospital forms, prescription pads, and industrial
+              labels?
+            </summary>
             <p>
               Yes. We print patient forms, prescription pads, hospital
               stationery, industrial documentation, product labels, and
@@ -3304,6 +3427,8 @@
               <a
                 class="c-card"
                 href="https://maps.app.goo.gl/dBgbmvjGQbTkwco27"
+                title="Milan Media Service location in Bhubaneswar, Odisha"
+                aria-label="Open Milan Media Service location in Bhubaneswar, Odisha on Google Maps"
                 target="_blank"
                 rel="noopener"
               >
@@ -3313,14 +3438,24 @@
                   <div class="c-val">Bhubaneswar, Odisha</div>
                 </div>
               </a>
-              <a class="c-card" href="tel:+918249714896">
+              <a
+                class="c-card"
+                href="tel:+918249714896"
+                title="Call Milan Media Service"
+                aria-label="Call Milan Media Service at plus nine one eight two four nine seven one four eight nine six"
+              >
                 <div class="ic"><i class="fas fa-phone"></i></div>
                 <div>
                   <div class="c-label">Phone</div>
                   <div class="c-val">+91 82497 14896</div>
                 </div>
               </a>
-              <a class="c-card" href="mailto:info@milanmediaservice.com">
+              <a
+                class="c-card"
+                href="mailto:info@milanmediaservice.com"
+                title="Email Milan Media Service"
+                aria-label="Email Milan Media Service"
+              >
                 <div class="ic"><i class="fas fa-envelope"></i></div>
                 <div>
                   <div class="c-label">Email</div>
